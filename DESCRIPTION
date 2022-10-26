@@ -1,0 +1,10 @@
+Package: TexTools
+Type: Package
+Title: Handy tools for creating Tex content from R code/objects
+Version: 0.1.0
+Author: Thomas Fjærvik
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
