@@ -15,32 +15,32 @@
 
 
 save_tikz <- function(fig = NULL, path = NULL, sanitize = TRUE) {
-  
+
   if (is.null(fig)) {
     usethis::ui_stop("fig is NULL, provide figure to save")
   }
-  
+
   if (is.null(path)) {
     usethis::ui_stop("path is NULL, don't know where to save figure file")
   }
-  
-  if (path_file(path_ext_remove(path)) == path) {
+
+  if (fs::path_file(fs::path_ext_remove(path)) == path) {
     path <- fs::path("manuscript", "content",
-                     path_ext_remove(path), ext = "tex")
+                     fs::path_ext_remove(path), ext = "tex")
   }
-  
+
   if (fs::path_ext(path) == "") {
     usethis::ui_info("No file extension given, adding .tex")
     path <- fs::path_ext_set(path, "tex")
   }
-  
+
   tikzDevice::tikz(file = path, width = 6.4, height = 3.54, sanitize = sanitize,
                    verbose = FALSE)
   print(fig)
   dev.off()
-  
+
   usethis::ui_done(paste0("Figure is saved to: ", path))
-  
+
   invisible(path)
-  
+
 }
