@@ -25,7 +25,7 @@ save_tikz <- function(fig = NULL, path = NULL, sanitize = TRUE) {
   }
 
   if (fs::path_file(fs::path_ext_remove(path)) == path) {
-    path <- fs::path("manuscript", "content",
+    path <- fs::path("_figures",
                      fs::path_ext_remove(path), ext = "tex")
   }
 
