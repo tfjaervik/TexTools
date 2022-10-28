@@ -70,7 +70,8 @@ write_tex <- function(x, path, folder) {
 
 
 
-    path <- fs::path_ext_set(fs::path(folder,fs::path_ext_remove(path)), ext = "tex")
+    path <- fs::path_ext_set(fs::path(folder,fs::path_ext_remove(path)),
+                             ext = "tex")
   }
 
 
@@ -79,10 +80,11 @@ write_tex <- function(x, path, folder) {
   file_conn <- file(path)
   cat(x, file = file_conn, sep = "\n")
   close(file_conn)
+  invisible(path)
 
   utils::writeClipboard(x)
 
   return(invisible(x))
 }
 
-write_tex(x, "yo", "man")
+
